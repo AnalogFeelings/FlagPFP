@@ -7,7 +7,7 @@ Uses the Pastel lib for color output, which makes it NO_COLOR compliant.
 
   * (pixel margin) is the margin of pixels to leave between the flag's border and the circle of the profile picture.
 
-  * (flag type) for a list of flag types, look at [here](#flag-types)
+  * (flag type) for a list of flag types, look at [this](#flag-types)
 
 __--Attention--__ Your profile picture must be over 800x800!
 
