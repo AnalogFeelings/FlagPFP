@@ -9,12 +9,14 @@ Uses the [Pastel](https://github.com/silkfire/Pastel) lib for color output, whic
 
   * (flag type) for a list of flag types, look at [this](#flag-types)
 
-__--Attention--__ Your profile picture must be over 800x800!
+### Attention!
+Your profile picture must be over 800x800!
 
 ## Building FlagPFP
 First off, you are going to need Visual Studio 2019, and .NET 5.0. Then open the .sln file and build it.
 
-__--Attention--__ The program will look for DLLs in the "lib" folder on the output directory. Please copy all DLLs except FlagPFP.dll to the "lib" folder. Also copy the "Flags" folder to the output directory for the program to be able to look for the flag images.
+### Attention! 
+The program will look for DLLs in the "lib" folder on the output directory. Please copy all DLLs except FlagPFP.dll to the "lib" folder. Also copy the "Flags" folder to the output directory for the program to be able to look for the flag images.
 
 ## Contributing
 I am open to pull requests from everyone! Just fork it and start making pull requests :)
