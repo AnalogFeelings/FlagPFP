@@ -1,7 +1,7 @@
 # FlagPFP
 A C# command line tool for adding a circular frame to images, with pride flags.
 
-Uses the Pastel lib for color output, which makes it NO_COLOR compliant.
+Uses the [Pastel](https://github.com/silkfire/Pastel) lib for color output, which makes it NO_COLOR compliant.
 
 * Usage: __flagpfp (profile pic) (flag type) (pixel margin) (output file)__
 
