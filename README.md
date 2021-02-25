@@ -21,6 +21,10 @@ The program will look for DLLs in the "lib" folder on the output directory. Plea
 ## Contributing
 I am open to pull requests from everyone! Just fork it and start making pull requests :)
 
+## Adding custom flags (Not possible yet!)
+Make sure the flag image is distinguisable when a circle is cropped in its middle! Also, preferably make the flag image 800x800 or just upscale it in something like 
+Adobe Photoshop with filtering disabled (this is __crucial__ to having a sharp flag image after the upscale).
+
 ## Flag Types
 
 * agender
