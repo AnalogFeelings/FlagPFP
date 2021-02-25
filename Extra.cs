@@ -5,6 +5,8 @@ using Pastel;
 using System;
 using System.Configuration;
 using System.Linq;
+using CommandLine;
+using CommandLine.Text;
 
 namespace FlagPFP.Main
 {
@@ -16,6 +18,21 @@ namespace FlagPFP.Main
                               error.Pastel(Color.Red));
             if (exit == true) Environment.Exit(1);
         }
+
+        public static void DisplayHelp<T>(ParserResult<T> result)
+        {
+            HelpText helpText = null;
+            helpText = HelpText.AutoBuild(result, h =>
+            {
+                h.AdditionalNewLineAfterOption = true;
+                h.Heading = "FlagPFP".Pastel(Color.PaleTurquoise) + " v2.0".Pastel(Color.PaleGreen);
+                h.Copyright = "Copyleft AestheticalZ 2021".Pastel(Color.Aquamarine);
+
+                return HelpText.DefaultParsingErrorsHandler(result, h);
+            }, e => e);
+            Console.WriteLine(helpText);
+        }
+
         //Chunky boy
         public static void WriteHeaders(string flag, bool writeCredits = true)
         {

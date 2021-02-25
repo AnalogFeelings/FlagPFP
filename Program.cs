@@ -66,20 +66,6 @@ namespace FlagPFP.Main
             });
         }
 
-        public static void DisplayHelp<T>(ParserResult<T> result)
-        {
-            HelpText helpText = null;
-            helpText = HelpText.AutoBuild(result, h =>
-            {
-                h.AdditionalNewLineAfterOption = true;
-                h.Heading = "FlagPFP".Pastel(Color.PaleTurquoise) + " v2.0".Pastel(Color.PaleGreen);
-                h.Copyright = "Copyleft AestheticalZ 2021".Pastel(Color.Aquamarine);
-
-                return HelpText.DefaultParsingErrorsHandler(result, h);
-            }, e => e);
-            Console.WriteLine(helpText);
-        }
-
         public class Options
         {
             [Option("image", Required = true, HelpText = "Image file to use.")]
