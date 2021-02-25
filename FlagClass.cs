@@ -1,8 +1,38 @@
-﻿namespace FlagPFP.Main
+﻿using System.Collections.Generic;
+
+namespace FlagPFP.Main
 {
-    public partial class MainProgram
+    public class FlagClass
     {
-        public static (string color, string letter)[] gayFlag = new (string color, string letter)[]
+        private static FlagClass _Instance;
+        public static FlagClass Instance
+        {
+            get
+            {
+                if (_Instance == null) _Instance = new FlagClass();
+                return _Instance;
+            }
+        }
+
+        public Dictionary<string, string> flagsTable = new Dictionary<string, string>()
+        {
+            { "gay", "Flags/gay.png" },
+            { "agender", "Flags/agender.png" },
+            { "aromantic", "Flags/aromantic.png" },
+            { "asexual", "Flags/asexual.png" },
+            { "bisexual", "Flags/bisexual.png" },
+            { "demisexual", "Flags/demisexual.png" },
+            { "gaymen", "Flags/gaymen.png" },
+            { "genderfluid", "Flags/genderfluid.png" },
+            { "genderqueer", "Flags/genderqueer.png" },
+            { "lesbian", "Flags/lesbian.png" },
+            { "nonbinary", "Flags/nonbinary.png" },
+            { "pansexual", "Flags/pansexual.png" },
+            { "polysexual", "Flags/polysexual.png" },
+            { "transgender", "Flags/transgender.png" }
+        };
+
+        public (string color, string letter)[] gayFlag = new (string color, string letter)[]
         {
             ( "#FF0000", " " ),
             ( "#FF8D00", " " ),
@@ -12,7 +42,7 @@
             ( "#89008B", " " )
         };
 
-        public static (string color, string letter)[] agenderFlag = new (string color, string letter)[]
+        public (string color, string letter)[] agenderFlag = new (string color, string letter)[]
         {
             ( "#000000", " " ),
             ( "#BBBBBB", " " ),
@@ -23,7 +53,7 @@
             ( "#000000", " " )
         };
 
-        public static (string color, string letter)[] aromanticFlag = new (string color, string letter)[]
+        public (string color, string letter)[] aromanticFlag = new (string color, string letter)[]
         {
             ( "#00A735", " " ),
             ( "#92D574", " " ),
@@ -32,7 +62,7 @@
             ( "#000000", " " )
         };
 
-        public static (string color, string letter)[] asexualFlag = new (string color, string letter)[]
+        public (string color, string letter)[] asexualFlag = new (string color, string letter)[]
         {
             ( "#000000", " " ),
             ( "#A5A5A5", " " ),
@@ -40,7 +70,7 @@
             ( "#970083", " " ),
         };
 
-        public static (string color, string letter)[] bisexualFlag = new (string color, string letter)[]
+        public (string color, string letter)[] bisexualFlag = new (string color, string letter)[]
         {
             ( "#FA0073", " " ),
             ( "#FA0073", " " ),
@@ -49,7 +79,7 @@
             ( "#0034AD", " " ),
         };
 
-        public static (string color, string letter)[] demisexualFlag = new (string color, string letter)[]
+        public (string color, string letter)[] demisexualFlag = new (string color, string letter)[]
         {
             ( "#FFFFFF", " " ),
             ( "#000000", " " ),
@@ -57,7 +87,7 @@
             ( "#D4D4D3", " " )
         };
 
-        public static (string color, string letter)[] gaymenFlag = new (string color, string letter)[]
+        public (string color, string letter)[] gaymenFlag = new (string color, string letter)[]
         {
             ( "#00A7D8", " " ),
             ( "#00BBFF", " " ),
@@ -66,7 +96,7 @@
             ( "#00A536", " " )
         };
 
-        public static (string color, string letter)[] genderfluidFlag = new (string color, string letter)[]
+        public (string color, string letter)[] genderfluidFlag = new (string color, string letter)[]
         {
             ( "#FF75A2", " " ),
             ( "#FFFFFF", " " ),
@@ -75,7 +105,7 @@
             ( "#333EBD", " " )
         };
 
-        public static (string color, string letter)[] genderqueerFlag = new (string color, string letter)[]
+        public (string color, string letter)[] genderqueerFlag = new (string color, string letter)[]
         {
             ( "#B57EDC", " " ),
             ( "#B57EDC", " " ),
@@ -85,7 +115,7 @@
             ( "#4A8123", " " )
         };
 
-        public static (string color, string letter)[] lesbianFlag = new (string color, string letter)[]
+        public (string color, string letter)[] lesbianFlag = new (string color, string letter)[]
         {
             ( "#D52D00", " " ),
             ( "#FF9A56", " " ),
@@ -94,7 +124,7 @@
             ( "#A30262", " " )
         };
 
-        public static (string color, string letter)[] nonbinaryFlag = new (string color, string letter)[]
+        public (string color, string letter)[] nonbinaryFlag = new (string color, string letter)[]
         {
             ( "#FCF434", " " ),
             ( "#FCFCFC", " " ),
@@ -102,7 +132,7 @@
             ( "#2C2C2C", " " )
         };
 
-        public static (string color, string letter)[] pansexualFlag = new (string color, string letter)[]
+        public (string color, string letter)[] pansexualFlag = new (string color, string letter)[]
         {
             ( "#FF218C", " " ),
             ( "#FF218C", " " ),
@@ -112,7 +142,7 @@
             ( "#21B1FF", " " )
         };
 
-        public static (string color, string letter)[] polysexualFlag = new (string color, string letter)[]
+        public (string color, string letter)[] polysexualFlag = new (string color, string letter)[]
         {
             ("#F61CB9", " "),
             ("#F61CB9", " "),
@@ -122,7 +152,7 @@
             ("#1C92F6", " ")
         };
 
-        public static (string color, string letter)[] transgenderFlag = new (string color, string letter)[]
+        public (string color, string letter)[] transgenderFlag = new (string color, string letter)[]
         {
             ( "#00D0FC", " " ),
             ( "#FFABBA", " " ),

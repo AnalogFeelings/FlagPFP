@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CommandLine;
+using CommandLine.Text;
 using Pastel;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 
@@ -10,48 +13,92 @@ namespace FlagPFP.Main
         //This program complies with the NO_COLOR standard as it uses the Pastel library.
         static void Main(string[] args)
         {
-            if(args.Length < 4)
-            {
-                Console.WriteLine("Error: ".Pastel(Color.DarkRed) +
-                    "Please follow the syntax: ".Pastel(Color.Red)
-                    + "flagpfp <image> <flag> <pixel margin> <output name>".Pastel(Color.CadetBlue));
-                Environment.Exit(1);
-            }
+            Parser parser = new Parser(config => config.HelpWriter = null);
+            ParserResult<Options> parseResult = parser.ParseArguments<Options>(args);
 
-            Bitmap imageFile = null;
-            Bitmap flag = null;
-            string flagPath;
-            int pixelMargin = 0;
+            parseResult.WithNotParsed(err => DisplayHelp(parseResult));
 
-            try
+            parseResult.WithParsed(o =>
             {
-                imageFile = new Bitmap(Image.FromFile(args[0]));
-                flagsTable.TryGetValue(args[1], out flagPath);
-                flag = new Bitmap(Image.FromFile(flagPath));
-                int.TryParse(args[2], out pixelMargin);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: ".Pastel(Color.DarkRed) + ex.Message.Pastel(Color.Red));
-                Environment.Exit(1);
-            }
-            WriteHeaders(args[1]);
-            Console.WriteLine("\nMaking image...".Pastel(Color.LightGreen));
+                string flagPath;
+                if (!FlagClass.Instance.flagsTable.TryGetValue(o.FlagType, out flagPath))
+                {
+                    LogError($"{o.FlagType} isn't a valid flag type!\n");
+                    Console.WriteLine("---Flag Types---".Pastel(Color.CornflowerBlue));
+                    foreach (KeyValuePair<string, string> pair in FlagClass.Instance.flagsTable)
+                    {
+                        WriteHeaders(pair.Key, false);
+                    }
 
-            Bitmap croppedBmp = CropPicture(ref imageFile, 800);
-            Bitmap flagBmp = CropFlag(ref flag, pixelMargin);
-            Bitmap finalBmp = StitchTogether(ref flagBmp, ref croppedBmp);
+                    Environment.Exit(1);
+                }
 
-            try { finalBmp.Save(args[3], ImageFormat.Png); }
-            catch(Exception ex)
+                WriteHeaders(o.FlagType);
+                Console.WriteLine("\nMaking image...".Pastel(Color.LightGreen));
+
+                ImageProcessing processing = new ImageProcessing();
+
+                Bitmap imageFile = null;
+                Bitmap flag = null;
+                
+                try
+                {
+                    imageFile = processing.LoadAndResizeBmp(o.ImageFile, o.Size, o.Size);
+                    flag = processing.LoadAndResizeBmp(flagPath, o.Size, o.Size);
+                }
+                catch (Exception ex)
+                {
+                    LogError(ex.StackTrace, true);
+                }
+
+                Bitmap croppedBmp = processing.CropPicture(ref imageFile, o.Size, false);
+                Bitmap flagBmp = processing.CropFlag(ref flag, o.PixelMargin);
+                Bitmap finalBmp = processing.StitchTogether(ref flagBmp, ref croppedBmp, o.InnerSize);
+
+                try { finalBmp.Save(o.Output, ImageFormat.Png); }
+                catch (Exception ex)
+                {
+                    LogError(ex.StackTrace, true);
+                }
+                Console.WriteLine($"Success! Saved image \"{o.Output}\"".Pastel(Color.SpringGreen));
+                Console.WriteLine($"FlagPFP, by Aesthetical#9203, 2021.".Pastel(Color.PaleTurquoise));
+                Environment.Exit(0);
+            });
+        }
+
+        public static void DisplayHelp<T>(ParserResult<T> result)
+        {
+            HelpText helpText = null;
+            helpText = HelpText.AutoBuild(result, h =>
             {
-                Console.WriteLine("Error: ".Pastel(Color.DarkRed) +
-                    ex.StackTrace.Pastel(Color.Red));
-                Environment.Exit(1);
-            }
-            Console.WriteLine($"Success! Saved image \"{args[3]}\"".Pastel(Color.SpringGreen));
-            Console.WriteLine($"FlagPFP, by Aesthetical#9203, 2021.".Pastel(Color.PaleTurquoise));
-            Environment.Exit(0);
+                h.AdditionalNewLineAfterOption = true;
+                h.Heading = "FlagPFP".Pastel(Color.PaleTurquoise) + " v2.0".Pastel(Color.PaleGreen);
+                h.Copyright = "Copyleft AestheticalZ 2021".Pastel(Color.Aquamarine);
+
+                return HelpText.DefaultParsingErrorsHandler(result, h);
+            }, e => e);
+            Console.WriteLine(helpText);
+        }
+
+        public class Options
+        {
+            [Option("image", Required = true, HelpText = "Image file to use.")]
+            public string ImageFile { get; set; }
+
+            [Option("flag", Required = true, HelpText = "The flag type.")]
+            public string FlagType { get; set; }
+
+            [Option("margin", Required = true, HelpText = "Pixel margin between border and inner window.")]
+            public int PixelMargin { get; set; }
+
+            [Option("insize", Required = true, HelpText = "Size of the inner image, for example, set it to more than the full image size to crop it.")]
+            public int InnerSize { get; set; }
+
+            [Option("fsize", Required = false, HelpText = "Full image size.", Default = (int)800)]
+            public int Size { get; set; }
+
+            [Option("output", Required = true, HelpText = "Output image file.")]
+            public string Output { get; set; }
         }
     }
 }
