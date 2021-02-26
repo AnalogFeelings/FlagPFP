@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Agender Flag",
+  "FlagPattern": [ "#000000", "#BBBBBB", "#FFFFFF", "#9AF57C", "#FFFFFF", "#BBBBBB", "#000000" ],
+  "FlagFile": "agender.png",
+  "DesignCredits": "By Salem Fontana - Salem’s initial agender flag design post from tumblr Interview with Salem about the flag’s design, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38242756",
+  "ParameterName": "agender"
+}

@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Polysexual Flag",
+  "FlagPattern": [ "#F61CB9", "#F61CB9", "#07D569", "#07D569", "#1C92F6", "#1C92F6"],
+  "FlagFile": "polysexual.png",
+  "DesignCredits": "By McLennonSon - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38241562",
+  "ParameterName": "polysexual"
+}

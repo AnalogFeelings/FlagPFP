@@ -14,24 +14,6 @@ namespace FlagPFP.Main
             }
         }
 
-        public Dictionary<string, string> flagsTable = new Dictionary<string, string>()
-        {
-            { "gay", "Flags/gay.png" },
-            { "agender", "Flags/agender.png" },
-            { "aromantic", "Flags/aromantic.png" },
-            { "asexual", "Flags/asexual.png" },
-            { "bisexual", "Flags/bisexual.png" },
-            { "demisexual", "Flags/demisexual.png" },
-            { "gaymen", "Flags/gaymen.png" },
-            { "genderfluid", "Flags/genderfluid.png" },
-            { "genderqueer", "Flags/genderqueer.png" },
-            { "lesbian", "Flags/lesbian.png" },
-            { "nonbinary", "Flags/nonbinary.png" },
-            { "pansexual", "Flags/pansexual.png" },
-            { "polysexual", "Flags/polysexual.png" },
-            { "transgender", "Flags/transgender.png" }
-        };
-
         public (string color, string letter)[] gayFlag = new (string color, string letter)[]
         {
             ( "#FF0000", " " ),

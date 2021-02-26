@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Genderfluid Flag",
+  "FlagPattern": [ "#FF75A2", "#FFFFFF", "#BE18D6", "#000000", "#333EBD" ],
+  "FlagFile": "genderfluid.png",
+  "DesignCredits": "By JJ Pole.McLennonSon - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38242265",
+  "ParameterName": "genderfluid"
+}

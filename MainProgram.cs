@@ -1,10 +1,11 @@
 ﻿using CommandLine;
-using CommandLine.Text;
 using Pastel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using FlagPFP.Processing;
+using FlagPFP.Loading;
 
 namespace FlagPFP.Main
 {
@@ -20,31 +21,30 @@ namespace FlagPFP.Main
 
             parseResult.WithParsed(o =>
             {
-                string flagPath;
-                if (!FlagClass.Instance.flagsTable.TryGetValue(o.FlagType, out flagPath))
+                FlagLoader loader = new FlagLoader();
+                Dictionary<string, PrideFlag> flagDict = loader.LoadFlags("Flag JSONs");
+
+                if (!flagDict.TryGetValue(o.FlagType, out PrideFlag flagPath))
                 {
                     LogError($"{o.FlagType} isn't a valid flag type!\n");
                     Console.WriteLine("---Flag Types---".Pastel(Color.CornflowerBlue));
-                    foreach (KeyValuePair<string, string> pair in FlagClass.Instance.flagsTable)
-                    {
-                        WriteHeaders(pair.Key, false);
-                    }
+                    foreach (KeyValuePair<string, PrideFlag> pair in flagDict) WriteHeaders(pair.Value, false, true);
 
                     Environment.Exit(1);
                 }
 
-                WriteHeaders(o.FlagType);
+                WriteHeaders(flagPath);
                 Console.WriteLine("\nMaking image...".Pastel(Color.LightGreen));
 
                 ImageProcessing processing = new ImageProcessing();
 
                 Bitmap imageFile = null;
                 Bitmap flag = null;
-                
+
                 try
                 {
                     imageFile = processing.LoadAndResizeBmp(o.ImageFile, o.Size, o.Size);
-                    flag = processing.LoadAndResizeBmp(flagPath, o.Size, o.Size);
+                    flag = processing.LoadAndResizeBmp("Flags/" + flagPath.FlagFile, o.Size, o.Size);
                 }
                 catch (Exception ex)
                 {

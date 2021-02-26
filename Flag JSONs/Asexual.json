@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Asexual Flag",
+  "FlagPattern": [ "#000000", "#A5A5A5", "#FFFFFF", "#970083" ],
+  "FlagFile": "asexual.png",
+  "DesignCredits": null,
+  "ParameterName": "asexual"
+}

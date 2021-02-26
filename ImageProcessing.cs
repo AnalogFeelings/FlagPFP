@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using Pastel;
 
-namespace FlagPFP.Main
+namespace FlagPFP.Processing
 {
     public class ImageProcessing
     {
@@ -27,7 +27,7 @@ namespace FlagPFP.Main
                 return res;
             }
 
-            Console.WriteLine("Cropped successfully!".Pastel(Color.LightSteelBlue));
+            Console.WriteLine("Cropped successfully!".Pastel(Color.LightGreen));
             return bmp;
         }
 
@@ -41,7 +41,7 @@ namespace FlagPFP.Main
                 g.DrawImage(pic, new Rectangle((finalSize - picSize) / 2, (finalSize - picSize) / 2, picSize, picSize));
                 g.DrawImage(flag, new Rectangle(0, 0, finalSize, finalSize));
             }
-            Console.WriteLine("Merged images together successfully!".Pastel(Color.LightSteelBlue));
+            Console.WriteLine("Merged images together successfully!".Pastel(Color.LightGreen));
             return res;
         }
 
@@ -66,7 +66,7 @@ namespace FlagPFP.Main
                 g.CompositingMode = CompositingMode.SourceCopy;
                 g.FillEllipse(Brushes.Transparent, (finalSize - widthHeight) / 2, (finalSize - widthHeight) / 2, widthHeight, widthHeight);
             }
-            Console.WriteLine("Cropped flag successfully!".Pastel(Color.LightSteelBlue));
+            Console.WriteLine("Cropped flag successfully!".Pastel(Color.LightGreen));
             return flagImg;
         }
     }

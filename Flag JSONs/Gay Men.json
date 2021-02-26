@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Gay Men Flag",
+  "FlagPattern": [ "#00A7D8", "#00BBFF", "#FFFFFF", "#00D58C", "#00A536" ],
+  "FlagFile": "gaymen.png",
+  "DesignCredits": null,
+  "ParameterName": "gaymen"
+}

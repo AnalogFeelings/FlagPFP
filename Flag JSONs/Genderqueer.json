@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Genderqueer Flag",
+  "FlagPattern": [ "#B57EDC", "#B57EDC", "#FFFFFF", "#FFFFFF", "#4A8123", "#4A8123" ],
+  "FlagFile": "genderqueer.png",
+  "DesignCredits": null,
+  "ParameterName": "genderqueer"
+}

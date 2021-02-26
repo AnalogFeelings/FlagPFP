@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Aromantic Flag",
+  "FlagPattern": [ "#00A735", "#92D574", "#FFFFFF", "#ABABAB", "#000000" ],
+  "FlagFile": "aromantic.png",
+  "DesignCredits": null,
+  "ParameterName": "aromantic"
+}

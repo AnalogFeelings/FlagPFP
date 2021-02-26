@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Non-Binary Flag",
+  "FlagPattern": [ "#FCF434", "#FCFCFC", "#9C59D1", "#2C2C2C"],
+  "FlagFile": "nonbinary.png",
+  "DesignCredits": null,
+  "ParameterName": "nonbinary"
+}

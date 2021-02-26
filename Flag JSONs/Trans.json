@@ -1,0 +1,7 @@
+{
+  "ConsoleHeader": "Transgender Flag",
+  "FlagPattern": [ "#00D0FC", "#FFABBA", "#FFFFFF", "#FFABBA", "#00D0FC" ],
+  "FlagFile": "transgender.png",
+  "DesignCredits": null,
+  "ParameterName": "transgender"
+}
