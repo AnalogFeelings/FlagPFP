@@ -41,7 +41,7 @@ __Next, use this JSON template:__
 "By McLennonSon - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38241562" in this field.
 * "ParameterName" is the name of the parameter --flag.
 
-And you are ready to go! Your custom flag is now added.
+And you are ready to go! Save the json file with any name in the "Flag JSONs folder", and your custom flag will now be detected!
 
 ## Flag Types (built in)
 
