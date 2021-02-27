@@ -15,7 +15,7 @@ Uses the [Pastel](https://github.com/silkfire/Pastel) lib for color output, whic
 First off, you are going to need Visual Studio 2019, and .NET 5.0. Then open the .sln file and build it.
 
 ### Attention! 
-Also Please copy the "Flags" and "Flag JSONs" folders to the output directory for the program to be able to look for the flag images and their definitons.
+Please copy the "Flags" and "Flag JSONs" folders to the output directory for the program to be able to look for the flag images and their definitons.
 
 ## Contributing
 I am open to pull requests from everyone! Just fork it and start making pull requests :)
