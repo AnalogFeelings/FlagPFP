@@ -1,3 +1,6 @@
+# THIS IS OLD AND WILL BE ARCHIVED. PLEASE USE [THIS](https://github.com/AestheticalZ/flagpfp-gui)
+
+
 # FlagPFP
 A C# command line tool for adding a circular frame to images, with pride flags.
 
